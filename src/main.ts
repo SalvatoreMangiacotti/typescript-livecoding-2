@@ -107,3 +107,92 @@ console.log(arrayDiInformazioni)
 const percorsoImmagine: [string, ...string[]] = ["C:", "Users", "User", "Documents", "monte-fuji.img"]
 
 console.log(percorsoImmagine);
+
+
+
+// Type Alias
+
+// Il Type Alias è ciò che permette di dare un nome a una struttura di dati e riutilizzarla più volte.
+
+type Utente = {
+    nome: string;
+    eta: number;
+    hobby: string[];
+    indirizzo: { via: string; citta: string };
+    contatti: { email: string; telefono?: string }
+}
+
+const utenteUno: Utente = {
+    nome: "Anna",
+    eta: 25,
+    hobby: ["Lettura", "Yoga"],
+    indirizzo: { via: "Via Verdi, 15", citta: "Roma" },
+    contatti: { email: "anna@email.com", telefono: "12345678910" }
+}
+
+console.log(utenteUno);
+
+
+type UtenteDue = {
+    nome: string;
+    eta: number;
+    email: string;
+}
+
+type Dipendente = UtenteDue & {
+    ruolo: string;
+    stipendio: number;
+}
+
+const user: UtenteDue = {
+    nome: "Anna",
+    eta: 25,
+    email: "anna@email.com"
+}
+
+const worker: Dipendente = {
+    nome: "Marco",
+    eta: 30,
+    email: "marco@email.com",
+    ruolo: "Developer",
+    stipendio: 3000
+}
+
+console.log(user, worker)
+
+
+
+type User = {
+    id: number;
+    nome: string;
+    email: string;
+}
+
+const utenti: User[] = [
+    { id: 1, nome: "Alice", email: "alice@email.com" },
+    { id: 2, nome: "Luca", email: "luca@email.com" },
+    { id: 3, nome: "Giulia", email: "giulia@email.com" },
+    { id: 4, nome: "Marco", email: "marco@email.com" },
+    { id: 5, nome: "Sara", email: "sara@email.com" }
+]
+
+console.log(utenti)
+
+// Import & Export dei tipi
+
+// // types.ts
+// export type Utente = {
+//     id: number;
+//     nome: string;
+//     email: string;
+// }
+
+
+// // main.ts
+// import { Utente } from "./types";
+
+// const user: Utente = {
+//     nome: "Anna",
+//     eta: 25,
+//     email: "anna@email.com"
+// }
